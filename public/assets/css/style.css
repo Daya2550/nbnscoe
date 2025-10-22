@@ -1,0 +1,511 @@
+
+/* ==================================
+ * Header wrapper and top bar (migrated from header.php)
+ * ================================== */
+.sknscoe-header-wrapper{ position:fixed; top:0; left:0; right:0; z-index:10000; }
+.sknscoe-header-container *{ box-sizing:border-box; }
+.sknscoe-header-container a{ text-decoration:none; color:inherit; }
+.top-bar{ background:linear-gradient(135deg,#1a1a2e 0%,#16213e 100%); color:#fff; padding:8px 0; font-size:13px; border-bottom:2px solid #cc0033; }
+.top-bar-content{ max-width:1400px; margin:0 auto; padding:0 20px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:15px; }
+.top-bar-left{ display:flex; gap:25px; align-items:center; }
+.top-bar-item{ display:flex; align-items:center; gap:6px; color:#d1d5db; }
+.top-bar-item i{ color:#cc0033; font-size:14px; }
+.top-bar-right{ display:flex; gap:15px; align-items:center; }
+.social-icon{ width:28px; height:28px; border-radius:50%; background:rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center; color:#fff; font-size:12px; transition:all .3s ease; }
+.social-icon:hover{ background:#cc0033; transform:translateY(-2px); }
+
+/* Main header */
+.main-header{ background:#fff; box-shadow:0 2px 10px rgba(0,0,0,.1); position:relative; z-index:1000; }
+.header-content{ max-width:1400px; margin:0 auto; padding:15px 20px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+.logo-section{ display:flex; align-items:center; gap:15px; overflow:visible; }
+.logo-container{ display:flex; align-items:center; gap:15px; }
+.logo-img{ height:70px; width:auto; transition:transform .3s ease; }
+.logo-img:hover{ transform:scale(1.05); }
+.college-info{ display:flex; flex-direction:column; gap:4px; }
+.college-mandal{ font-size:11px; color:#666; font-weight:500; }
+.college-name{ font-size:22px; font-weight:700; color:#1a1a2e; line-height:1.2; }
+.college-name span{ color:#cc0033; }
+.college-tagline{ font-size:10px; color:#888; margin-top:2px; }
+.accreditation-strip{ display:flex; gap:8px; margin-top:5px; }
+.acc-badge{ background:linear-gradient(135deg,#cc0033,#ff4444); color:#fff; padding:3px 10px; border-radius:12px; font-size:9px; font-weight:600; text-transform:uppercase; letter-spacing:.5px; }
+.right-logos{ display:flex; gap:10px; }
+.cert-logo{ height:60px; width:auto; filter:drop-shadow(0 2px 4px rgba(0,0,0,.1)); transition:transform .3s ease; }
+.cert-logo:hover{ transform:translateY(-3px); }
+
+/* Navigation (custom) */
+.navigation{ background:linear-gradient(135deg,#cc0033 0%,#990028 100%); box-shadow:0 2px 5px rgba(0,0,0,.1); z-index:100000; }
+.nav-content{ max-width:1400px; margin:0 auto; padding:0 20px; display:flex; align-items:center; justify-content:space-between; }
+.nav-menu{ display:flex; list-style:none; gap:5px; overflow:visible; }
+.nav-item{ position:relative; overflow:visible; }
+.nav-link{ display:block; padding:14px 16px; color:#fff; text-decoration:none; font-size:14px; font-weight:500; transition:all .3s ease; border-radius:4px 4px 0 0; }
+.nav-link:hover, .nav-item:hover .nav-link{ background:rgba(255,255,255,.15); color:#fff; }
+.nav-link i{ margin-left:4px; font-size:10px; }
+.dropdown-menu{ position:absolute; top:100%; left:0; background:#fff; min-width:250px; box-shadow:0 8px 20px rgba(0,0,0,.15); border-radius:0 0 8px 8px; overflow:hidden; opacity:0; visibility:hidden; transform:translateY(-10px); transition:all .3s ease; z-index:10001; }
+.nav-item:hover > .dropdown-menu{ opacity:1; visibility:visible; transform:translateY(0); }
+.dropdown-menu li{ list-style:none; }
+.dropdown-menu a{ display:block; padding:12px 20px; color:#333; text-decoration:none; font-size:13px; transition:all .3s ease; border-left:3px solid transparent; }
+.dropdown-menu a:hover{ background:#f8f9fa; border-left-color:#cc0033; padding-left:25px; color:#cc0033; }
+.mobile-toggle{ display:none; background:none; border:none; color:#fff; font-size:24px; cursor:pointer; padding:10px; }
+.admin-link{ background:rgba(255,255,255,.15); padding:8px 16px; border-radius:6px; color:#fff; text-decoration:none; font-size:13px; font-weight:500; transition:all .3s ease; }
+.admin-link:hover{ background:#fff; color:#cc0033; }
+
+@media (max-width:1200px){ .nav-link{ padding:12px 12px; font-size:13px; } }
+@media (max-width:992px){
+  .top-bar{ font-size:11px; }
+  .college-name{ font-size:18px; }
+  .logo-img, .cert-logo{ height:50px; }
+  .nav-menu{ display:none; }
+  .mobile-toggle{ display:block; }
+  .navigation{ position:relative; }
+  .nav-menu.mobile-open{ display:flex; flex-direction:column; position:absolute; top:100%; left:0; right:0; background:#cc0033; gap:0; box-shadow:0 8px 20px rgba(0,0,0,.2); z-index:9999; }
+  .nav-menu.mobile-open .nav-link{ border-radius:0; }
+  .dropdown-menu{ position:static; opacity:1; visibility:visible; transform:none; box-shadow:none; background:rgba(0,0,0,.1); display:none; z-index:10000; }
+  .nav-item.mobile-dropdown-open > .dropdown-menu{ display:block; }
+}
+@media (max-width:768px){
+  .top-bar-left, .top-bar-right{ flex-wrap:wrap; gap:10px; }
+  .header-content{ flex-direction:column; text-align:center; }
+  .logo-section{ flex-direction:column; }
+  .college-info{ align-items:center; }
+  .accreditation-strip{ justify-content:center; }
+  .nav-content{ padding:0 10px; }
+}
+@media (max-width:576px){
+  .college-name{ font-size:16px; }
+  .logo-img, .cert-logo{ height:40px; }
+  .top-bar-item{ font-size:11px; }
+  .acc-badge{ font-size:8px; padding:2px 8px; }
+}
+
+
+:root{
+  /* Colors */
+  --color-primary:#0a2342; --color-accent-gold:#f5b700; --color-accent-red:#d7263d;
+  --color-white:#ffffff; --color-bg:#f8f9fa; --color-text:#1e2a36; --color-muted:#6c7a89;
+  /* Brand header text colors */
+  --color-brand-top:#e9edf3; --color-brand-sub:#f2f4f7; --color-brand-addr:#e9edf3; --color-brand-note:#ffd8d8; --color-header-red:#cc0033;
+  /* Shadows */
+  --shadow-sm:0 2px 6px rgba(10,35,66,.08); --shadow-md:0 10px 20px rgba(10,35,66,.12); --shadow-lg:0 18px 34px rgba(10,35,66,.16);
+  /* Radii */
+  --radius-sm:8px; --radius-md:12px; --radius-lg:16px;
+  /* Fonts */
+  --font-heading:'Poppins','Montserrat','Segoe UI',system-ui,-apple-system,sans-serif;
+  --font-body:'Open Sans','Roboto','Segoe UI',system-ui,-apple-system,sans-serif;
+  /* Timings */
+  --ease:cubic-bezier(.25,.1,.25,1); --transition:.3s var(--ease);
+  /* Header offset default */
+  --header-offset: 250px;
+}
+html{ scroll-behavior:smooth; }
+body{ font-family:var(--font-body); color:var(--color-text); background:var(--color-bg); line-height:1.6; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; overflow-x:hidden; }
+img{ max-width: 100%; height: auto; display: block; }
+a{ color: var(--color-primary); text-decoration: none; transition: color var(--transition); }
+a:hover{ color: var(--color-accent-red); }
+.section-title, h1, h2, h3, h4, h5, h6{ font-family: var(--font-heading); font-weight: 700; color: var(--color-primary); }
+/* Typographic scale with clamp for responsiveness */
+h1{ font-size: clamp(1.8rem, 1.2rem + 2.2vw, 3rem); }
+h2{ font-size: clamp(1.6rem, 1.1rem + 1.8vw, 2.4rem); }
+h3{ font-size: clamp(1.3rem, 1rem + 1.2vw, 1.8rem); }
+h4{ font-size: clamp(1.1rem, 0.95rem + 0.8vw, 1.4rem); }
+h5{ font-size: clamp(1rem, 0.9rem + 0.4vw, 1.2rem); }
+h6{ font-size: 1rem; }
+
+/* Accessible focus states */
+:focus-visible{ outline: 3px solid var(--color-accent-gold); outline-offset: 2px; border-radius: 4px; }
+
+/* Utility spacing */
+.mt-0{ margin-top: 0 !important; }
+.mt-2{ margin-top: .5rem !important; }
+.mt-3{ margin-top: 1rem !important; }
+.mt-4{ margin-top: 1.5rem !important; }
+.mb-0{ margin-bottom: 0 !important; }
+.mb-2{ margin-bottom: .5rem !important; }
+.mb-3{ margin-bottom: 1rem !important; }
+.mb-4{ margin-bottom: 1.5rem !important; }
+.p-2{ padding: .5rem !important; }
+.p-3{ padding: 1rem !important; }
+.p-4{ padding: 1.5rem !important; }
+
+/* ==================================
+ * ========== Navbar / Header REFINEMENT ==========
+ * ================================== */
+
+/* --- Primary Navigation Bar (Sticky Top) --- */
+.navbar {
+    box-shadow: var(--shadow-sm);
+    border: 0;
+    transition: background var(--transition), box-shadow var(--transition);
+    z-index: 1000; /* Base stacking context */
+    margin-bottom: 0; /* Clear Bootstrap default */
+    min-height: 48px; /* Standardize height */
+}
+
+/* Parent container for the full header (fixes style="margin:0;") */
+.header-row {
+    margin: 0;
+}
+
+/* Style for the container housing the entire fixed navigation */
+.navbar-fixed-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2000; /* keep above body content and sidebars */
+    overflow: visible; /* allow dropdowns to overflow header */
+}
+
+/* Primary Color Navigation Bar */
+.navbar.navbar-inverse,
+.navbar.navbar-default,
+.navbar-inverse {
+    background: var(--color-primary) !important;
+    border-color: transparent !important;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/* Brand area header (Logo/Title Block) container (fixes style="...") */
+.navbar-header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* Ensure the brand area stays *above* the collapsing nav on small screens */
+    z-index: 1050;
+    float: none; /* Override Bootstrap default for full-width layout */
+}
+/* Link wrapper around the brand */
+.navbar-header > div > a {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    padding: 0;
+}
+
+/* --- Brand Area Layout (Moved from inline <style>) --- */
+.brand-wrap {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 4px 8px; /* Padding for the entire brand wrap */
+    flex-wrap: wrap;
+}
+.brand-left, .brand-right {
+    flex: 1 1 220px;
+    max-width: 240px;
+}
+.brand-left img, .brand-right img {
+    height: 64px; /* Standard height for logos */
+    object-fit: contain;
+}
+.brand-center {
+    flex: 2 1 520px;
+    min-width: 320px;
+}
+.brand-banner {
+    width: 100%;
+    padding: 8px 14px;
+    text-align: center;
+}
+
+/* Brand Area Typography (Using CSS variables) */
+.brand-top {
+    font-size: 15px;
+    color: var(--color-brand-top);
+}
+.brand-title {
+    display: inline-block;
+    background: var(--color-header-red);
+    color: var(--color-white);
+    padding: 10px 16px;
+    border-radius: var(--radius-md);
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.2;
+    font-family: var(--font-heading);
+}
+.brand-sub {
+    font-size: 15px;
+    margin-top: 6px;
+    color: var(--color-brand-sub);
+}
+.brand-addr {
+    font-size: 14px;
+    color: var(--color-brand-addr);
+}
+.brand-note {
+    font-size: 13px;
+    color: var(--color-brand-note);
+}
+
+
+/* --- Nav Menu Links (Desktop) --- */
+.navbar .navbar-nav > li > a {
+    color: var(--color-white) !important;
+    font-weight: 600;
+    transition: opacity var(--transition), color var(--transition), background-color var(--transition);
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.navbar .navbar-nav > li > a:hover,
+.navbar .navbar-nav > .active > a,
+.navbar .navbar-nav > .open > a {
+    background: rgba(0, 0, 0, 0.1) !important;
+    color: var(--color-accent-gold) !important;
+}
+
+/* Left alignment for the main nav */
+.navbar-left {
+    margin-left: 0;
+}
+/* Right alignment for Admin link */
+.navbar-right {
+    /* Adjust margin to match bootstrap defaults if needed, or keep 0 */
+}
+
+/* --- Dropdown Menus --- */
+.navbar .dropdown-menu {
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-md);
+    border: 0;
+    padding: .5rem 0;
+    min-width: 200px;
+    z-index: 9999; /* ensure above everything */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    margin-top: 0;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: auto;
+}
+/* Ensure parent positions dropdown correctly */
+.navbar .navbar-nav > li { position: relative; }
+.navbar .nav-item { position: relative; }
+.navbar li.dropdown { position: relative; }
+/* Desktop hover open for accessibility */
+@media (min-width: 993px){
+  .navbar .nav-item:hover > .dropdown-menu,
+  .navbar li.dropdown:hover > .dropdown-menu,
+  .navbar .navbar-nav > li:hover > .dropdown-menu{
+    display: block !important;
+    visibility: visible;
+    opacity: 1;
+  }
+}
+/* Mobile open state handled by JS class and Bootstrap 'open' */
+.navbar .nav-item.mobile-dropdown-open > .dropdown-menu,
+.navbar li.dropdown.open > .dropdown-menu{ display:block !important; visibility:visible; opacity:1; }
+.navbar .dropdown-menu > li > a {
+    padding: .6rem 1rem;
+    font-weight: 500;
+    color: var(--color-text);
+}
+.navbar .dropdown-menu > li > a:hover,
+.navbar .dropdown-menu > li.active > a {
+    background: rgba(245, 183, 0, .12);
+    color: var(--color-primary);
+}
+/* Ensure collapsed nav aligns under header on small screens (fixes style="margin-left:65px;") */
+.mob-main-nav { margin-left: 0 !important; }
+
+
+/* --- Global Header Layout Offsets --- */
+/* Sticky offset compensation */
+body.has-fixed-header { padding-top: var(--header-offset); }
+/* Safety: ensure main not under header for laptop widths */
+@media (min-width: 993px){ main.container-fluid { margin-top: 8px; } }
+/* Anchor targets offset for fixed header */
+[id] { scroll-margin-top: calc(var(--header-offset) + 10px); }
+main.container-fluid { padding-top: .5rem; }
+main.container-fluid > *:first-child{ margin-top: 8px; }
+
+/* ==================================
+/* --- Mobile/Off-Canvas Navigation ---
+ * ================================== */
+.navbar-collapse { z-index: 1080; }
+.navbar-toggle { z-index: 1090; }
+@media (max-width: 992px) {
+    /* Adjust body padding for mobile header height */
+    body.has-fixed-header {
+        /* Based on the brand-wrap/navbar-header being tall on mobile */
+        padding-top: 260px;
+    }
+    [id] {
+        scroll-margin-top: 270px;
+    }
+
+    /* --- Hamburger Button --- */
+    .navbar-toggle {
+        display: block;
+        z-index: 1060;
+        margin: 10px;
+        border-radius: 4px;
+        border: 1px solid var(--color-white) !important;
+        background-color: rgba(255, 255, 255, 0.1);
+        transition: background-color var(--transition);
+        /* Position to the right, outside the main brand area */
+        position: absolute;
+        right: 15px;
+        top: 0;
+    }
+    .navbar-toggle:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+    .navbar-toggle .icon-bar {
+        background-color: var(--color-white);
+    }
+    .navbar-header {
+        /* Allow space for the hamburger button to the right */
+        padding-right: 60px;
+    }
+
+
+    /* --- Off-Canvas Panel --- */
+    .navbar-collapse {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 80%;
+        max-width: 340px;
+        background: var(--color-primary);
+        border-top: 0;
+        box-shadow: var(--shadow-lg);
+        transform: translateX(-100%);
+        transition: transform .4s var(--ease);
+        padding: 1rem 0;
+        overflow-y: auto;
+        z-index: 1050;
+        display: block !important;
+    }
+    .navbar-collapse.in {
+        transform: translateX(0);
+    }
+    .navbar-nav {
+        float: none !important;
+        margin: 0;
+    }
+    .navbar-nav > li {
+        float: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .navbar-nav > li:last-child {
+        border-bottom: none;
+    }
+    .navbar-nav > li > a {
+        padding: 12px 16px;
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--color-white) !important;
+    }
+    .navbar-nav > li > a:hover,
+    .navbar-nav > .active > a {
+        background: rgba(245, 183, 0, .15) !important;
+        color: var(--color-accent-gold) !important;
+    }
+
+    /* --- Mobile Overlay --- */
+    .n-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, .6);
+        z-index: 1040;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .4s var(--ease);
+    }
+    .n-overlay.show {
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+
+/* ==================================
+ * --- Brand Area Responsive Tweaks (Cleaned up) ---
+ * ================================== */
+@media (max-width: 1200px) {
+    .brand-left, .brand-right {
+        flex: 1 1 200px;
+        max-width: 220px;
+    }
+    .brand-center {
+        flex: 2 1 480px;
+    }
+    .brand-title {
+        font-size: 28px;
+    }
+    .brand-sub {
+        font-size: 14px;
+    }
+    .brand-addr {
+        font-size: 13px;
+    }
+}
+@media (max-width: 992px) {
+    .brand-left, .brand-right {
+        flex: 1 1 160px;
+        max-width: 180px;
+    }
+    .brand-center {
+        flex: 2 1 420px;
+    }
+    .brand-title {
+        font-size: 24px;
+        padding: 8px 14px;
+    }
+    .brand-sub {
+        font-size: 13px;
+    }
+    .brand-addr {
+        font-size: 12px;
+    }
+    .brand-note {
+        font-size: 12px;
+    }
+}
+@media (max-width: 768px) {
+    .brand-left, .brand-right {
+        flex: 1 1 140px;
+        max-width: 160px;
+    }
+    .brand-center {
+        flex: 1 1 100%;
+        min-width: 280px;
+    }
+    .brand-title {
+        font-size: 20px;
+    }
+    .brand-sub, .brand-addr {
+        font-size: 12px;
+    }
+    .brand-note {
+        display: none; /* Hiding the note for smaller screens */
+    }
+}
+@media (max-width: 576px) {
+    .brand-left, .brand-right {
+        flex: 1 1 120px;
+        max-width: 140px;
+    }
+    .brand-title {
+        font-size: 18px;
+    }
+    .brand-sub, .brand-addr {
+        font-size: 11px;
+    }
+    /* Final adjustment for small screen padding offset */
+    body.has-fixed-header {
+        padding-top: 270px;
+    }
+    [id] {
+        scroll-margin-top: 280px;
+    }
+}
+
+/* --- OTHER SECTIONS (Unchanged from previous context) --- */
+/* ... (Hero, Sections, Cards, Buttons, Tables, Sidebar, Footer styles follow) ... */
+

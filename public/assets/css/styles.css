@@ -1,0 +1,48 @@
+body { padding-top: 140px; }
+.section-title { margin: 2rem 0 1rem; border-bottom: 2px solid #eee; padding-bottom: .5rem; }
+.card-title, .list-group-item { font-size: .95rem; }
+.small-muted { color: #6c757d; font-size: .85rem; }
+.hero img { max-width: 150px; border-radius: 4px; }
+/* Header icon cube sliders */
+.mySwiper, .mySwiper1 { width: 110px; height: 110px; margin: 0 12px; }
+.mySwiper .swiper-slide img, .mySwiper1 .swiper-slide img { width: 100%; height: 100%; object-fit: contain; }
+.middle-img { max-height: 80px; margin: 0 12px; }
+
+/* Home hero slider sizing */
+#myCarousel .item img { width: 100%; max-height: 60vh; object-fit: cover; }
+
+/* Remove side padding for full-bleed main */
+main.container-fluid { padding-left: 0; padding-right: 0; }
+
+/* Tighter top spacing to match smaller header */
+body { padding-top: 140px; }
+
+/* One-at-a-time auto sliders */
+.auto-scroll { overflow: hidden; position: relative; }
+.auto-scroll-track { display: flex; gap: 0; width: 100%; will-change: transform; transition: transform 0.6s ease; }
+.auto-scroll-track > * { flex: 0 0 100%; max-width: 100%; }
+/* Ensure one slide per view regardless of grid classes */
+.auto-scroll-track > .col-sm-6,
+.auto-scroll-track > .col-md-3,
+.auto-scroll-track > .col-md-4,
+.auto-scroll-track > .col-md-6,
+.auto-scroll-track > .col-12 { flex: 0 0 100% !important; max-width: 100% !important; float: none; }
+/* Default image height */
+.auto-scroll-track img.card-img-top { width: 100%; height: 220px; object-fit: cover; display: block; }
+/* Latest Event: consistent block sizing */
+.auto-one { --slide-img-h: 260px; }
+.auto-one .auto-scroll-track img.card-img-top { height: var(--slide-img-h); }
+/* Video slider sizing */
+.auto-video .card-body { padding: 8px; }
+.auto-video .embed-responsive, .auto-video iframe, .auto-video video { width: 100%; height: 280px; }
+
+/* Prevent long headings from overlapping */
+.thumbnail.title { display:block; width:100%; overflow:hidden; margin-bottom:8px; }
+.thumbnail.title figure { margin:0; }
+.thumbnail.title figure > * { display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+
+@media (max-width: 576px){
+  .auto-scroll-track img.card-img-top { height: 160px; }
+  .auto-one { --slide-img-h: 200px; }
+  .auto-video .embed-responsive, .auto-video iframe, .auto-video video { height: 200px; }
+}

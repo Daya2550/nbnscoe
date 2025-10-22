@@ -1,0 +1,15 @@
+/* Neutralize Bootstrap dropdown styles to avoid conflicts. All dropdown styling is handled in public/assets/css/style.css. */
+/* Scope to common Bootstrap selectors */
+.dropdown-menu{all:unset;}
+/* Re-apply minimal baseline for layout */
+.dropdown-menu{position:static; display:none; min-width:0; padding:0; margin:0; border:0; border-radius:0; box-shadow:none; background:none; list-style:none;}
+.open>.dropdown-menu{display:inherit;}
+.dropdown-backdrop{display:none !important;}
+.caret{display:none !important;}
+/* Navbar-specific bootstrap rules neutralization */
+.navbar-nav>li>.dropdown-menu{position:static; float:none; margin:0;}
+.navbar-fixed-top .navbar-collapse, .navbar-static-top .navbar-collapse, .navbar-fixed-bottom .navbar-collapse{overflow:visible;}
+/* Ensure our custom nav can position its dropdowns */
+.navigation .dropdown-menu{all:unset;}
+.navigation .dropdown-menu{position:absolute; top:100%; left:0; display:none;}
+.navigation .nav-item.mobile-dropdown-open>.dropdown-menu{display:block;}
